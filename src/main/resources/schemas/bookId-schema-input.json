@@ -1,0 +1,15 @@
+    {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "properties": {
+            "author": {
+                "type": "string"
+            },
+            "pages": {
+                "type": "integer"
+            },
+            "title": {
+                "type": "string"
+            }
+        },
+        "type": "object"
+    }

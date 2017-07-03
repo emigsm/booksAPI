@@ -1,0 +1,96 @@
+#%RAML 0.8
+---
+title: Books API
+version: 1.0
+baseUri: http://localhost:8080/booksapi
+documentation:
+  - title: About
+    content: |
+      Books API allows you to perform simple operations over a catalog of books such as add, get all, get by title, update and delete books and its information.
+
+/books:
+  displayName: Books
+  #description: |
+  #  A collection of books in the catalog.
+  get:
+    description: Retrieves all the available books and its information.
+    headers:
+      User:
+        description: Used for tracking purposes, must contain the name of the user making the request.
+        example: emiliano
+        required: true
+    queryParameters:
+      title:
+        displayName: Title
+        type: string
+        description: The title of the book.
+        example: Full dark no stars
+        required: false
+    responses:
+      200:
+        body:
+          application/json:
+            schema: !include schemas/books-schema-output.json         
+            example: !include examples/books-example.json
+  post:
+    description: Adds a new book to the catalog.
+    headers:
+      User:
+        description: Used for tracking purposes, must contain the name of the user making the request.
+        example: emiliano
+        required: true
+    body:
+      application/json:
+        example: !include examples/books-post-example.json
+        schema: !include schemas/books-schema-input.json
+    responses:
+      201:
+        description: |
+          The book has been succesfully created.
+      409:
+        description: |
+          A book with the provided ID already exists.
+          
+  /{bookId}:
+    displayName: Book
+    #description: |
+    #  Allows you to delete a book from the catalog or modify its information.
+    uriParameters:
+      bookId:
+        description: |
+          Integer unique ID.
+        type: integer
+        example: 1
+    put:
+      description: Updates book information such as author and amount of pages.
+      headers:
+        User:
+          description: Used for tracking purposes, must contain the name of the user making the request.
+          example: emiliano
+          required: true
+      body:
+        application/json:
+          example: !include examples/bookId-put-example.json
+          schema: !include schemas/bookId-schema-input.json
+  
+      responses:
+        200:
+          description: |
+            Book successfully updated.
+        404:
+          description: |
+            Unable to find a book with the desired ID.
+    delete:
+      description: Removes a book from the catalog.
+      headers:
+        User:
+          description: Used for tracking purposes, must contain the name of the user making the request.
+          example: emiliano
+          required: true
+      responses:
+        204:
+          description: |
+            Book removed succesfully.
+        404:
+          description: |
+            Unable to find a book with the desired ID.

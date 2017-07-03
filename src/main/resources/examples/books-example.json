@@ -1,0 +1,26 @@
+[
+	{
+		"title":"Full dark no stars",
+    	"author":"Stephen King",
+    	"pages":438,
+    	"id":1
+	},
+	{
+		"title":"The silmarillion",
+    	"author":"J.R.R Tolkien",
+    	"pages":365,
+    	"id":2
+	},
+	{
+		"title":"The call of Cthulhu and other weird stories",
+    	"author":"H.P. Lovecraft",
+    	"pages":438,
+    	"id":3
+	},
+	{
+		"title":"The dark tower: The gunslinger",
+    	"author":"Stephen King",
+    	"pages":224,
+    	"id":4
+	}
+]	
