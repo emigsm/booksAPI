@@ -9,13 +9,13 @@ To run this project you'll need Maven and Anypoint Studio installed.
 
 This API provides allows you to manage a simple book catalog.
 
-Operations
+#### Available Operations #####
 
-1- List all books.
-2- Create a new book.
-3- Update an existing book (using its id).
-4- Delete an existing book (using its id).
-5- Find a book by title.
+1. List all books.
+2. Create a new book.
+3. Update an existing book (using its id).
+4. Delete an existing book (using its id).
+5. Find a book by title.
 
 ### Running the project ###
 
